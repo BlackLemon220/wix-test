@@ -79,6 +79,7 @@ function paginationNext() {
     if(currentPage !== 5) {
         currentPage++;
         showPage(currentSub, currentCategory);
+        document.getElementById("numberPage").innerHTML = currentPage + " / " + maxPage;
     }
 }
 function paginationBack() {
@@ -86,6 +87,7 @@ function paginationBack() {
         currentPage--;
         i = ((currentPage - 1) * 12) + 1;
         showPage(currentSub, currentCategory);
+        document.getElementById("numberPage").innerHTML = currentPage + " / " + maxPage;
     }
 }
 
