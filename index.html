@@ -10,22 +10,18 @@
 
 
     <div id='search-box'>
-        
         <div id='search-form'>
             <input id='search-text' placeholder='Search' type='text'/>
             <select id="select">
-                <option>Hot</option>
-                <option>New</option>
-                <option>Top</option>
+                <option value="Hot">Hot</option>
+                <option value="Top">Top</option>
+                <option value="New">New</option>
             </select>
-            <button id='search-button' onclick="searchHandler()">                     
+            <button id='search-button' onclick="searchHandler()">    
                 <span>Search</span>
             </button>
-
         </div> 
-
     </div>
-    
     <span id="background"></span>
       <div id="contents">
         <ul class="images">
@@ -42,10 +38,16 @@
           <li><a id="a11" target="_blank"><img id="pic11" alt=""></a></li>
           <li><a id="a12" target="_blank"><img id="pic12" alt=""></a></li>
         </ul>
-      </div>
-    <script src="jquery-3.2.1.js"></script>
-<script src = "include.js"></script>
+      
+        <div class="pagination">
+            <img src="./images/back.png" id="left" onClick="paginationBack()"/>
+            <span id="numberPage">1 / 5</span>
+            <img src="./images/next.png" id="next" onClick="paginationNext()"/>
+        </div>
+    </div>
+<script src="./js/jquery-3.2.1.js"></script>
+<script src = "./js/include.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/reddit.js@0.1.4/reddit.min.js"></script>
-<script src = "app.js"></script>
+<script src = "./js/app.js"></script>
 </body>
 </html>
