@@ -7,14 +7,14 @@
     <link rel="stylesheet" href="css/style.css" type="text/css" charset="utf-8">
 </head>
 <body>
-
+<script src = "include.js"></script>
     <div id='search-box'>
-        <form action='#' id='search-form' method='get' target='_top'>
-            <input id='search-text' name='q' placeholder='Search' type='text'/>
-            <button id='search-button' type='submit'>                     
+        <div id='search-form'>
+            <input id='search-text' placeholder='Search' type='text'/>
+            <button id='search-button' onclick="searchHandler()">                     
                 <span>Search</span>
             </button>
-        </form>
+        </div>
     </div>
 
     <span id="background"></span>
