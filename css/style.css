@@ -27,6 +27,15 @@ img{
     margin-top: 20px;
     padding-left: 30px;
 }
+@-moz-document url-prefix() {
+        #search-box {
+        position: relative;
+        width: 369px;
+        margin: 0 auto;
+        margin-top: 20px;
+        padding-left: 30px;
+    }
+}
 #search-form {
     height: 40px;
     border: 1px solid #999;
@@ -43,7 +52,6 @@ img{
     background: transparent;
 }
 #search-box input[type="text"] {
-
     padding: 11px 0 12px 1em;
     color: #333;
     outline: none;
@@ -73,6 +81,7 @@ img{
 #select {
     position: absolute;
     width:79px;
+    
     padding:11px;
     border-width: 0;
     background-color:#c9ccd6;
@@ -125,6 +134,7 @@ img{
     width: 57%;
     margin: 0 auto;
     float: right;
+    margin-bottom: 17px;
 }
 .pagination img:hover {
     cursor: pointer;
