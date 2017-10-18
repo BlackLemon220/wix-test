@@ -15,28 +15,6 @@ img{
 	left:0;
 	top:0;
 }
-/** Contents **/
-#contents{
-    width: 50%;
-	padding-top:35px;
-    margin: 0 auto;
-}
-#contents ul.images{
-	display:inline-block;
-	list-style-type:none;
-	width:622px;
-	margin:0 auto 15px;
-}
-#contents ul.images li{
-	float:left;
-	background-position:0 0;
-	height:130px;
-	width:130px;
-	margin:2px 5px 13px;
-	padding:7px 7px 7px;
-    background:url(../images/interface.gif) no-repeat;
-}
-
 #search-box {
     position: relative;
     width: 30%;
@@ -85,3 +63,38 @@ img{
     border-radius: 0px 5px 5px 0px;
     cursor: pointer;
 }
+
+
+
+/** Contents **/
+#contents{
+    width: 50%;
+	padding-top:35px;
+    margin: 0 auto;
+}
+#contents ul.images{
+	display:inline-block;
+	list-style-type:none;
+	width:622px;
+	margin:0 auto 15px;
+}
+#contents ul.images li{
+	float:left;
+	background-position:0 0;
+	height:130px;
+	width:130px;
+	margin:2px 5px 13px;
+	padding:7px 7px 7px;
+    background:url(../images/interface.gif) no-repeat;
+}
+.images img {
+    
+    max-height: 100%;
+    max-width: 100%;
+    display: block;
+    margin: 0 auto;
+    
+    
+    
+}
+
