@@ -7,16 +7,25 @@
     <link rel="stylesheet" href="css/style.css" type="text/css" charset="utf-8">
 </head>
 <body>
-<script src = "include.js"></script>
+
+
     <div id='search-box'>
+        
         <div id='search-form'>
             <input id='search-text' placeholder='Search' type='text'/>
+            <select id="select">
+                <option>Hot</option>
+                <option>New</option>
+                <option>Top</option>
+            </select>
             <button id='search-button' onclick="searchHandler()">                     
                 <span>Search</span>
             </button>
-        </div>
-    </div>
 
+        </div> 
+
+    </div>
+    
     <span id="background"></span>
       <div id="contents">
         <ul class="images">
@@ -34,7 +43,8 @@
           <li><a id="a12" target="_blank"><img id="pic12" alt=""></a></li>
         </ul>
       </div>
-<script src="jquery-3.2.1.js"></script>
+    <script src="jquery-3.2.1.js"></script>
+<script src = "include.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/reddit.js@0.1.4/reddit.min.js"></script>
 <script src = "app.js"></script>
 </body>
