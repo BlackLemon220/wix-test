@@ -24,8 +24,8 @@ img{
     position: relative;
     width: 343px;
     margin: 0 auto;
-    margin-top: 30px;
-    padding-left: 25px;
+    margin-top: 20px;
+    padding-left: 30px;
 }
 #search-form {
     height: 40px;
@@ -90,7 +90,7 @@ img{
 
 #contents{
     width: 50%;
-	padding-top:35px;
+	padding-top:20px;
     margin: 0 auto;
 }
 #contents ul.images{
@@ -113,4 +113,17 @@ img{
     max-width: 100%;
     display: block;
     margin: 0 auto;
+}
+
+
+/** Pagination **/
+
+.pagination {
+    width: 57%;
+    margin: 0 auto;
+    float: right;
+}
+.pagination img:hover {
+    cursor: pointer;
+    opacity: 0.5;
 }
