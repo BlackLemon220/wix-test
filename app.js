@@ -97,4 +97,5 @@ function searchHandler() {
     currentPage = 1;
     currentSub = document.getElementById('search-text').value || currentSub;
     showSub(currentSub);
+    document.getElementById("numberPage").innerHTML = currentPage + " / " + maxPage;
 }
