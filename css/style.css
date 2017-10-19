@@ -22,7 +22,7 @@ img{
 
 #search-box {
     position: relative;
-    width: 343px;
+    width: 363px;
     margin: 0 auto;
     margin-top: 20px;
     padding-left: 30px;
@@ -80,8 +80,8 @@ img{
 }
 #select {
     position: absolute;
-    width:79px;
-    
+    width:98px;
+    -right: 4px;
     padding:11px;
     border-width: 0;
     background-color:#c9ccd6;

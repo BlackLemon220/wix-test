@@ -25,11 +25,11 @@ function showSub(sub, categorty, beforeOrAfter, imageCode) {
         case 'Hot':
             c = reddit.hot(sub).limit(imageNumber + 1);
             break;
+        case 'Random':
+            c = reddit.hot(sub).limit(imageNumber + 1);
+            break;
         case 'Top':
             c = reddit.top(sub).limit(imageNumber + 1);
-            break;
-        case 'New':
-            c = reddit.new(sub).limit(imageNumber + 1);
             break;
         default:
             c = reddit.hot(sub).limit(imageNumber + 1);
@@ -42,6 +42,7 @@ function showSub(sub, categorty, beforeOrAfter, imageCode) {
         // Loop for all 12 images, getting their urls from res object.
         for(var j = 1; j <= imageNumber; j++) {
             var myData = res.data.children[j].data;
+            if(myData.preview.images[0].resolutions.length < 2) continue;
             var pic = decodeHtml(myData.preview.images[0].resolutions[1].url);
             var picID = "pic" + j;
             var aID = "a" + j;
