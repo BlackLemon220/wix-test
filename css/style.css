@@ -24,6 +24,7 @@ img{
     position: relative;
     width: 363px;
     margin: 0 auto;
+    height: 41px;
     margin-top: 20px;
     padding-left: 30px;
 }
@@ -49,10 +50,11 @@ img{
     font-size: 14px;
     color: #ddd;
     border-width: 0;
+    position: static;
     background: transparent;
 }
 #search-box input[type="text"] {
-    padding: 11px 0 12px 1em;
+    padding: 12px 0 12px 1em;
     color: #333;
     outline: none;
 }
