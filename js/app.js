@@ -1,3 +1,4 @@
+
 var defaultSubreddit = "aww";
 var redditcom = "https://www.reddit.com";
 var currentCategory = "Hot";
@@ -42,8 +43,9 @@ function showSub(sub, categorty, beforeOrAfter, imageCode) {
         // Loop for all 12 images, getting their urls from res object.
         for(var j = 1; j <= imageNumber; j++) {
             var myData = res.data.children[j].data;
-            if(myData.preview.images[0].resolutions.length < 2) continue;
+           if(myData.preview.images[0].resolutions.length < 2) continue;
             var pic = decodeHtml(myData.preview.images[0].resolutions[1].url);
+            console.log(pic);
             var picID = "pic" + j;
             var aID = "a" + j;
             var permalink = myData.permalink;
