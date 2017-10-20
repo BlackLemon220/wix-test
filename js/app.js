@@ -1,4 +1,3 @@
-
 var defaultSubreddit = "aww";
 var redditcom = "https://www.reddit.com";
 var currentCategory = "Hot";
@@ -20,37 +19,36 @@ searchHandler();
  *                               Otherwize, undefined.]
  */
 function showSub(sub, categorty, beforeOrAfter, imageCode) {
-    var c;
+    var myReddit;
     // Although "Hot" is by default, i've added it to a 'case' just for more readable code.
     switch(categorty){
         case 'Hot':
-            c = reddit.hot(sub).limit(imageNumber + 1);
+            myReddit = reddit.hot(sub).limit(imageNumber + 1);
             break;
         case 'Random':
-            c = reddit.hot(sub).limit(imageNumber + 1);
+            myReddit = reddit.hot(sub).limit(imageNumber + 1);
             break;
         case 'Top':
-            c = reddit.top(sub).limit(imageNumber + 1);
+            myReddit = reddit.top(sub).limit(imageNumber + 1);
             break;
         default:
-            c = reddit.hot(sub).limit(imageNumber + 1);
+            myReddit = reddit.hot(sub).limit(imageNumber + 1);
             break;
     }
     // if / else if statement for pagination:
-    if(beforeOrAfter === "after") c = c.after(imageCode);
-    else if(beforeOrAfter === "before") c = c.before(imageCode);
-    c.fetch(function(res) {
+    if(beforeOrAfter === "after") myReddit = myReddit.after(imageCode);
+    else if(beforeOrAfter === "before") myReddit = myReddit.before(imageCode);
+    myReddit.fetch(function(res) {
         // Loop for all 12 images, getting their urls from res object.
         for(var j = 1; j <= imageNumber; j++) {
             var myData = res.data.children[j].data;
-           if(myData.preview.images[0].resolutions.length < 2) continue;
+            if(myData.preview.images[0].resolutions.length < 2) continue;
             var pic = decodeHtml(myData.preview.images[0].resolutions[1].url);
-            console.log(pic);
             var picID = "pic" + j;
             var aID = "a" + j;
             var permalink = myData.permalink;
             var ref = redditcom + permalink;
-            document.getElementById(picID).src = pic;
+            document.getElementById(picID).style.backgroundImage = "url('" + pic + "')";
             document.getElementById(picID).title = myData.title;
             document.getElementById(aID).href = ref;
             if(j === 1) firstImage = myData.name;
@@ -59,27 +57,33 @@ function showSub(sub, categorty, beforeOrAfter, imageCode) {
     });
 }
 /**
- * Activates when "Next" button is clicked.
+ * Activates when "Next" button is clicked. Shows next group of pictures.
  */
-function paginationNext() {
+document.getElementById("next").addEventListener('click', function() {
     if(currentPage !== maxPage) {
         currentPage++;
         showSub(currentSub, currentCategory, "after", lastImage);
         document.getElementById("numberPage").innerHTML = currentPage + " / " + maxPage;
     }
-}
+}, false);
 /**
- * Activates when "Back" button is clicked.
+ * Activates when "Back" button is clicked. Shows previous group of pictures.
  */
-function paginationBack() {
+document.getElementById("back").addEventListener('click', function() {
     if(currentPage !== 1) {
         currentPage--;
         showSub(currentSub, currentCategory, "before", firstImage);
         document.getElementById("numberPage").innerHTML = currentPage + " / " + maxPage;
     }
-}
+}, false);
 /**
- * Activates when search button is clicked. On startup, it being.
+ * Activates when the search-button is clicked.
+ */
+document.getElementById("search-button").addEventListener('click', function() {
+    searchHandler();
+}, false);
+/**
+ * Activates when search button is clicked. On startup, it being invoked.
  * 'currentSub' gets its value from the search input box. If empty, gets its last \ default sub.
  */
 function searchHandler() {
