@@ -1,10 +1,16 @@
 import React from 'react';
 
 class Top extends React.Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
     }
+
+    handleSearch() {
+        this.props.makeNewSearch();
+    }
+
     render() {
+        const handleSearch = this.handleSearch.bind(this);
         return (
             <div id='search-box'>    
                 <div id='search-form'>
@@ -12,9 +18,8 @@ class Top extends React.Component {
                     <select id="select">
                         <option value="Hot">Hot</option>
                         <option value="Top">Top</option>
-                        <option value="Random">Random</option>
                     </select>
-                    <button id="search-button"><span>Search</span></button>
+                    <button id="search-button" onClick={handleSearch} ><span>Search</span></button>
                 </div>
             </div>
         );

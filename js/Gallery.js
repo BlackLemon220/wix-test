@@ -15,12 +15,12 @@ class Gallery extends React.Component {
                             let imageStyle = {backgroundImage: 'url('+image.picUrl+')'};
                             return (<li>
                                 <a href={image.postUrl} target="_blank">
-                                    <div name={image.name} style={imageStyle} title={image.title} alt={image.title}></div>
+                                    <div name={image.name} style={imageStyle} title={image.title} alt={image.title}>
+                                    </div>
                                 </a>
                             </li>)
                         })
                     }
-                    
                 </ul>
             </div>
         );
