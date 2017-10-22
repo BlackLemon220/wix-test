@@ -4,7 +4,7 @@ var currentCategory = "Hot";
 var currentSub = defaultSubreddit;
 var currentPage = 1;
 var maxPage = 5;
-var imageNumber = 12;
+var NumberImages = 12;
 var firstImage;
 var lastImage;
 searchHandler();
@@ -23,16 +23,16 @@ function showSub(sub, categorty, beforeOrAfter, imageCode) {
     // Although "Hot" is by default, i've added it to a 'case' just for more readable code.
     switch(categorty){
         case 'Hot':
-            myReddit = reddit.hot(sub).limit(imageNumber + 1);
+            myReddit = reddit.hot(sub).limit(NumberImages + 1);
             break;
         case 'Random':
-            myReddit = reddit.hot(sub).limit(imageNumber + 1);
+            myReddit = reddit.hot(sub).limit(NumberImages + 1);
             break;
         case 'Top':
-            myReddit = reddit.top(sub).limit(imageNumber + 1);
+            myReddit = reddit.top(sub).limit(NumberImages + 1);
             break;
         default:
-            myReddit = reddit.hot(sub).limit(imageNumber + 1);
+            myReddit = reddit.hot(sub).limit(NumberImages + 1);
             break;
     }
     // if / else if statement for pagination:
@@ -40,7 +40,7 @@ function showSub(sub, categorty, beforeOrAfter, imageCode) {
     else if(beforeOrAfter === "before") myReddit = myReddit.before(imageCode);
     myReddit.fetch(function(res) {
         // Loop for all 12 images, getting their urls from res object.
-        for(var j = 1; j <= imageNumber; j++) {
+        for(var j = 1; j <= NumberImages; j++) {
             var myData = res.data.children[j].data;
             if(myData.preview.images[0].resolutions.length < 2) continue;
             var pic = decodeHtml(myData.preview.images[0].resolutions[1].url);
@@ -52,7 +52,7 @@ function showSub(sub, categorty, beforeOrAfter, imageCode) {
             document.getElementById(picID).title = myData.title;
             document.getElementById(aID).href = ref;
             if(j === 1) firstImage = myData.name;
-            if(j === imageNumber) lastImage = myData.name;
+            if(j === NumberImages) lastImage = myData.name;
         }
     });
 }

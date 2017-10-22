@@ -135,13 +135,13 @@ body{
 
 /** Pagination **/
 
-.pagination {
+#pagination {
     text-align: center;
     width: 100%;
     margin: 0 auto;
     margin-bottom: 17px;
 }
-.pagination img:hover {
+#pagination img:hover {
     cursor: pointer;
     opacity: 0.5;
 }
