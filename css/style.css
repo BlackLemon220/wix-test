@@ -32,6 +32,7 @@ body{
     flex-wrap: wrap;
     height: 41px;
     width: 363px;
+    width: -moz-max-content;
     overflow: hidden;
     margin: 0 auto;
 }
