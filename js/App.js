@@ -12,6 +12,9 @@ const DEFAULT_SUBREDDIT = "aww";
 const REDDIT_COM = "https://www.reddit.com";
 
 class App extends React.Component {
+    /**
+     *  Constructor
+     */
     constructor() {
         super();
         // State variable declaration
@@ -26,12 +29,27 @@ class App extends React.Component {
         };
     }
 
+    /**
+     * Decoding string:
+     * I took this function from:
+     * "https://stackoverflow.com/questions/7394748/whats-the-right-way-to-decode-a-string-that-has-special-html-entities-in-it"
+     * Reddit's URLs being received with 'amp;' which disturbs viewing the image.
+     * @param   {[URL]} html [All images URLs]
+     * @returns {[URL]} [[The same URL without 'amp;']]
+     */
     decodeHtml(html) {
         var txt = document.createElement("textarea");
         txt.innerHTML = html;
         return txt.value;
     }
 
+    /**
+     * Returns with a Promise an array of images with their URL, post URL, code, title and number.
+     * @param {string} subreddit        subreddit to show.
+     * @param {string} category         category to show.
+     * @param {string} beforeOrAfter    when pagination activates, i need to fetch before / after an image to show.
+     * @param {string} imageCode        the image code which fetching before or after.
+     */
     getReddit(subreddit, category, beforeOrAfter, imageCode) {
         return new Promise((resolve, reject) => {
             let myRedditApi;
@@ -73,7 +91,13 @@ class App extends React.Component {
         });
     }
 
-
+    /**
+     * Setting App's state. After this function automatically invoked render.
+     * @param {Array} arrayOfImages     Array of images with their URL, post URL, code, title and number.
+     * @param {number} numPage          The current page number (pagination).
+     * @param {string} currentSub       The current subreddit.
+     * @param {string} currentCategory  The current category.
+     */
     mySetState(arrayOfImages, numPage, currentSub, currentCategory) {
         this.setState({
             hasImages: true,
@@ -86,6 +110,9 @@ class App extends React.Component {
         });
     }
 
+    /**
+     * Invokes getReddit() and waiting Promise to return the arrayOfImages.
+     */
     componentDidMount() {
         const {currentSub, currentCategory, hasImages} = this.state;
         if (!hasImages) {
@@ -95,6 +122,10 @@ class App extends React.Component {
             });
         }
     }
+
+    /**
+     * Handler for prevoius page on pagination mechanism.
+     */
     switchPrevPage() {
         var {currentSub, currentCategory, currentPage , firstImage} = this.state;
         if (currentPage !== 1) {
@@ -106,8 +137,9 @@ class App extends React.Component {
         }
     }
 
-    
-
+    /**
+     * Handler for next page on pagination mechanism.
+     */
     switchNextPage() {
         var {currentSub, currentCategory, currentPage , lastImage} = this.state;
         if (currentPage !== MAX_PAGES) {
@@ -118,6 +150,10 @@ class App extends React.Component {
             });
         }
     }
+
+    /**
+     * Handler for new search for subreddit and category.
+     */
     makeNewSearch() {
         const currentSub = document.getElementById('search-text').value || currentSub;
         const currentCategory = document.getElementById('select').value;
@@ -127,6 +163,9 @@ class App extends React.Component {
         });
     }
 
+    /**
+     *  render
+     */
     render() {
         const {hasImages , images, currentPage} = this.state;
         const switchNextPage = this.switchNextPage.bind(this);

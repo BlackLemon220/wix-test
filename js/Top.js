@@ -1,14 +1,24 @@
 import React from 'react';
 
 class Top extends React.Component {
+    /**
+     * Constructor
+     * @param {object} props    class's properties
+     */
     constructor(props) {
         super(props);
     }
 
+    /**
+     * Handler for new search.
+     */
     handleSearch() {
         this.props.makeNewSearch();
     }
 
+    /**
+     * render
+     */
     render() {
         const handleSearch = this.handleSearch.bind(this);
         return (

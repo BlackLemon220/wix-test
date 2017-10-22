@@ -1,10 +1,17 @@
 import React from 'react';
 
 class Gallery extends React.Component {
+    /**
+     * Constructor
+     * @param {object} props    class's properties
+     */
     constructor(props) {
         super(props);
     }
 
+    /**
+     * render
+     */
     render() {
         const images = this.props.images;
         return (
