@@ -53,6 +53,7 @@ class App extends React.Component {
     getReddit(subreddit, category, beforeOrAfter, imageCode) {
         return new Promise((resolve, reject) => {
             let myRedditApi;
+            subreddit = subreddit || DEFAULT_SUBREDDIT;
             switch (category) {
                 case 'Hot':
                     myRedditApi = reddit.hot(subreddit).limit(NUMBER_IMAGES_PER_PAGE + 1);
